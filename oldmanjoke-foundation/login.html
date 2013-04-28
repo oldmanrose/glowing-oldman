@@ -20,7 +20,7 @@
 
   <script src="javascripts/vendor/custom.modernizr.js"></script>
 
-    <script src="javascripts/custom/infinitescroll.js"></script>
+  <script src="javascripts/custom/infinitescroll.js"></script>
 
 </head>
 <body>
@@ -42,9 +42,9 @@
     <!-- Left Nav Section -->
     <ul class="left">
       <li class="divider"></li>
-      <li><a href="pics.html">Pics</a></li>
+      <li><a href="#">Pics</a></li>
       <li class="divider"></li>
-      <li><a href="login.html">Login</a></li>
+      <li><a href="#">Login</a></li>
       <li class="divider"></li>
       <li class="has-dropdown"><a href="#">My Jokes</a>
 
@@ -68,44 +68,59 @@
   ================================================== -->
 
 
-	 <div class="row">  <!-- #mainphoto -->
-		  <div class="large-6 columns">
-			   <h2>Old Man Jokes</h2>
-        <a class="th radius" href="images/oldestlivingman.jpg">
-        <img src="images/oldestlivingman.jpg" alt="Oldest Living Man">
-        </a>
-		  </div>
-      <div class="large-6 columns">
-        <h3>Hi, my name is Jiroemon Kimura and I am the oldest living man at 116. Guess what I like to do with my spare time besides getting old, that's right laugh at Jokes! Heard a good Old Man Joke, please post it below. Remember the shorter the better, I don't have time to read long jokes. Having trouble remembering jokes, Keep track of all your jokes, using your own joke scroll</h3>
+<!-- Forms -->
+<form>
+  <fieldset>
+    <legend>Create your Account</legend>
+
+    <div class="row">
+      <div class="large-4 columns">
+        <label>Email Address</label>
+        <input type="text" placeholder="name@something.com">
       </div>
+    </div>
 
-	 </div>
-</div>
+    
 
-<div id="lastPostsLoader">
-<div class="large-12 columns">
-  <h2>Joke Scroll</h2>
-    <ul class="items">
-         <li class="large-6 columns">Cows make noise only when they're in the mood.</li>
-         <li>I went to the store to buy some soup but they were out of stock</li>
-         <li>LinkedIn, I want to get Linked Out</li>
-         <li>When I asked the man how he became a ditch-digger, he said he just fell into it.</li>
-         <li>I used to have a fear of hurdles, but I got over it.</li>
-         <li>I try wearing tight jeans, but I can never pull it off</li>
-         <li>I'm glad I know sign language, it's pretty handy</li>
-         <li>The man who survived mustard gas and pepper spray is now a seasoned veteran</li>
-         <li>When Peter Pan punches, they Neverland.</li>
-         <li>Don't trust people that do acupuncture, they're back stabbers.</li>
-         <li>I usually take steps to avoid elevators</li>
-         <li>If you step onto a plane and recognize a friend of yours named Jack don't yell out Hi Jack!</li>
-         <li>A boiled egg in the morning is hard to beat</li>
-         <li>The best way to communicate with a fish is to drop them a line</li>
-         <li>Two silk worms had a race. They ended up in a tie</li>
-         <li>I'm inclined to be laid back</li>
-         <li>My wife tells me I'm a skeptic - but I don't believe a word she says</li>
-    </ul>
-</div>
-</div>
+  <div class="row">
+      <div class="large-4 columns">
+          <label>Password</label>
+          <input type="text" placeholder="Password">
+       </div>   
+      <div class="large-8 columns">
+         <span data-tooltip class="has-tip" title="Must be at least 6 characters">Password Rules</span>
+      </div>
+    </div>
+
+  <div class="row">
+      <div class="large-4 columns">
+        <label>Re-Type Your Password</label>
+        <input type="text" placeholder="Re-Type Password">
+      </div>
+    </div>
+
+  <div class="row">
+    <div class="large-4 columns error">
+      <label class="error">Error</label>
+      <input type="text" class="error" />
+      <small class="error">Invalid entry</small>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="large-4 columns">
+           <!-- Button -->
+<a href="#" class="button">Submitt</a>
+      </div>
+    </div>
+
+
+
+  </fieldset>
+</form>
+
+
+
 
   <script>
   document.write('<script src=' +
