@@ -1,27 +1,35 @@
 
 $(document).ready(function(){
-    function lastAddedLiveFunc()
-    {
-        $('div#lastPostsLoader').html('<img src="bigLoader.gif">');
 
-        $.get("loadmore.php", function(data){
-            if (data != "") {
-                //console.log('add data..');
-                $(".items").append(data);
-            }
-            $('div#lastPostsLoader').empty();
-        });
-    };
+    var $container = $('#container');
 
-    //lastAddedLiveFunc();
-    $(window).scroll(function(){
-
-        var wintop = $(window).scrollTop(), docheight = $(document).height(), winheight = $(window).height();
-        var  scrolltrigger = 0.95;
-
-        if  ((wintop/(docheight-winheight)) > scrolltrigger) {
-         //console.log('scroll bottom');
-         lastAddedLiveFunc();
-        }
+    $container.imagesLoaded(function(){
+      $container.masonry({
+        itemSelector: '.box',
+        columnWidth: 100
+      });
     });
-});
+
+    $container.infinitescroll({
+      navSelector  : '#page-nav',    // selector for the paged navigation
+      nextSelector : '#page-nav a',  // selector for the NEXT link (to page 2)
+      itemSelector : '.box',     // selector for all items you'll retrieve
+      loading: {
+          finishedMsg: 'No more pages to load.',
+          img: 'http://i.imgur.com/6RMhx.gif'
+        }
+      },
+      // trigger Masonry as a callback
+      function( newElements ) {
+        // hide new items while they are loading
+        var $newElems = $( newElements ).css({ opacity: 0 });
+        // ensure that images load before adding to masonry layout
+        $newElems.imagesLoaded(function(){
+          // show elems now they're ready
+          $newElems.animate({ opacity: 1 });
+          $container.masonry( 'appended', $newElems, true );
+        });
+      }
+    );
+  });
+
