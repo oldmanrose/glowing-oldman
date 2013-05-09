@@ -1,4 +1,6 @@
 
+
+
 <!DOCTYPE html>
 <!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
@@ -13,6 +15,7 @@
     <link rel="stylesheet" href="stylesheets/app.css" />
     <link rel="stylesheet" href="stylesheets/style.css" />
     <link rel="stylesheet" href="stylesheets/scroll.css" />
+  
   
   <link href="stylesheets/normalize.css" media="screen, projector, print" rel="stylesheet" type="text/css" />
   <link href="stylesheets/app.css" media="screen, projector, print" rel="stylesheet" type="text/css" />
@@ -29,6 +32,9 @@
 
   <script src="javascripts/vendor/custom.modernizr.js"></script>
   <script src="javascripts/vendor/zepto.js"></script>
+  <script src="javascripts/vendor/gen_validatorv31.js"></script>
+
+
   
 
 </head>
@@ -76,6 +82,9 @@
   <!-- Primary Page Layout
   ================================================== -->
 
+ <div class="row">  <!-- space from top nav -->
+        <p>  </p>
+      </div>
 
 <!-- Forms -->
 
@@ -97,7 +106,7 @@
   <div class="row">
       <div class="large-4 columns">
           <label>Password</label>
-              <input type="password" class='{required:true, minlength:5}' placeholder="Password">
+              <input type="password" id='password' class='{required:true, minlength:6}' placeholder="Password">
        </div>   
       <div class="large-8 columns">
          <span data-tooltip class="has-tip" title="Must be at least 6 characters">Password Rules</span>
@@ -107,7 +116,7 @@
   <div class="row">
       <div class="large-4 columns">
         <label>Confirm Your Password</label>
-        <input type="password" class='{required:true, minlength:5}' placeholder="Re-Type Password">
+        <input type="password" class='{required:true, minlength:6, equalTo: password}' placeholder="Re-Type Password">
       </div>
     </div>
 
@@ -121,9 +130,45 @@
     </div>
 
 
-
   </fieldset>
 </form>
+
+
+
+<fieldset>
+<legend>Contact Us</legend>
+<form method="POST" name="contactform" action="contact-form-handler.php"> 
+<div class="row">
+  <div class="large-4 columns">
+    <label for='name'>Your Name:</label> <br>
+    <input type="text" name="name">
+  </div>
+</div>
+<div class="row">
+<div class="large-4 columns">
+<label for='email'>Email Address:</label> <br>
+<input type="text" name="email"> <br>
+</div>
+</div>
+<div class="row">
+<div class="large-4 columns">
+<label for='message'>Message:</label> <br>
+<textarea name="message"></textarea>
+</div>
+</div>
+<input type="submit" class='button' value="Submit"><br>
+</form>
+</fieldset>
+
+<script language="JavaScript">
+var frmvalidator  = new Validator("contactform");
+frmvalidator.addValidation("name","req","Please provide your name"); 
+frmvalidator.addValidation("email","req","Please provide your email"); 
+frmvalidator.addValidation("email","email","Please enter a valid email address"); 
+</script>
+
+
+
 
 
 <script type="text/javascript" src="javascripts/vendor/jquery.validate.min.js"></script>
